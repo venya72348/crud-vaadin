@@ -14,24 +14,24 @@ public class MainView extends VerticalLayout {
     private final CustomerRepository repo;
     final Grid<Customer> grid;
     final TextField filter;
-    private final Button addNewBtn;
-
+    private final Button addNewBtnn;
+    // Vladyslav do you best
     public MainView(CustomerRepository repo) {
         this.repo = repo;
         this.grid = new Grid<>(Customer.class);
         this.filter = new TextField();
-        this.addNewBtn = new Button("Add your people");
+        this.addNewBtnn = new Button("Add your people");
 
         filter.setPlaceholder("Filter by last name");
         filter.setValueChangeMode(ValueChangeMode.EAGER);
         filter.addValueChangeListener(e -> listCustomersFunction(e.getValue()));
 
-        addNewBtn.addClickListener(e -> {
+        addNewBtnn.addClickListener(e -> {
             repo.save(new Customer("Alex", "Novak"));
             listCustomersFunction(filter.getValue());
         });
 
-        HorizontalLayout actions = new HorizontalLayout(filter, addNewBtn);
+        HorizontalLayout actions = new HorizontalLayout(filter, addNewBtnn);
         add(actions, grid);
 
         grid.setHeight("300px");
