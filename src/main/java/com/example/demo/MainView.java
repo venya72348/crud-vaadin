@@ -10,7 +10,7 @@ import com.vaadin.flow.router.Route;
 
 @Route("")
 public class MainView extends VerticalLayout {
-
+    // implement the view with a grid and a form to add new customers
     private final CustomerRepository repo;
     final Grid<Customer> grid;
     final TextField filter;
